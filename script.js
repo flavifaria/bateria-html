@@ -5,9 +5,9 @@ const sons = {
     'F' : 'kick.wav',
     'G' : 'openhat.wav',
     'H' : 'ride.wav',
-    'I' : 'snare.wav',
-    'J' : 'tink.wav',
-    'K' : 'tom.wav',
+    'J' : 'snare.wav',
+    'K' : 'tink.wav',
+    'L' : 'tom.wav',
 };
 
 const criarDiv = (texto) => {
@@ -46,4 +46,3 @@ document.addEventListener('keydown', (event) => {
     const letra = event.key.toUpperCase();
     tocarSom(letra);
 });
-
