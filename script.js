@@ -1,32 +1,49 @@
-'use strict';
-
-//Criação das constantes de som
 const sons = {
     'A' : 'boom.wav',
     'S' : 'clap.wav',
     'D' : 'hithat.wav',
-    'F' : 'hithat.wav',
-    'G' : 'kick.wav',
-    'H' : 'openhat.wav',
-    'I' : 'ride.wav',
-    'J' : 'snare.wav',
-    'K' : 'tink.wav',
-    'L' : 'tom.wav',
-}
-//Função para criar uma div para cada tecla
+    'F' : 'kick.wav',
+    'G' : 'openhat.wav',
+    'H' : 'ride.wav',
+    'I' : 'snare.wav',
+    'J' : 'tink.wav',
+    'K' : 'tom.wav',
+};
+
 const criarDiv = (texto) => {
     const div = document.createElement('div'); 
     div.classList.add('key');
     div.textContent = texto; 
-    div.id = texto; 
+    div.id = texto;
+
+    // Evento de clique
+    div.addEventListener('click', () => {
+        tocarSom(texto);
+    });
+
     document.getElementById('container').appendChild(div); 
-}
+};
 
-//Função para mostrar botões na tela
-const exibir = Object.keys(sons).forEach(criarDiv)
+Object.keys(sons).forEach(criarDiv);
 
-const adicionarEfeito = (letra) => document.getElementById(letra).classList.toggle('active');
+const adicionarEfeito = (letra) => {
+    const div = document.getElementById(letra);
+    if (!div) return;
 
+    div.classList.add('active');
+    setTimeout(() => div.classList.remove('active'), 150);
+};
 
+const tocarSom = (letra) => {
+    const som = sons[letra];
+    if (!som) return;
+    const audio = new Audio(`sons/${som}`);
+    audio.play();
+    adicionarEfeito(letra);
+};
 
-exibir(sons);
+document.addEventListener('keydown', (event) => {
+    const letra = event.key.toUpperCase();
+    tocarSom(letra);
+});
+

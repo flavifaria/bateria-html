@@ -1,6 +1,56 @@
+body{
+    background-image: url(./back.jpg);
+}
+
 .title
 {
 text-align: center;
-font-size: 3rem;
-border-style: groove solid;
+font-size: 6rem;
+border-style: groove solid 20px;
+color: #ffcc00;
+margin-top: 100px;
+margin-bottom: 100px;
+margin-right: 50%;
+}
+main{
+    display: flex;
+    flex-direction: column;
+}
+
+.key{
+    display: flex;
+    width: 100px;
+    height: 100px;
+    align-items: center;
+    justify-content: center;
+    background-image:url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDrmZEsK5p0_w871IIM-WTk4Vzlc4Ekak9xA&s);
+    color: rgb(0, 0, 0);
+    font-size: 5rem;
+    border: 4px solid rgb(153, 148, 147);
+    cursor: pointer;
+    margin: 5px;
+    transition:  0.3s;
+    border-radius: 100px;
+}
+
+.key:hover{
+    color: #ffcc00;
+}
+
+.container{
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    box-shadow: inset;
+}
+
+.active{
+    transform: scale(1.3);
+    border-color: #ffcc00;
+    box-shadow: 0 0 50px #ffcc00;
 }
